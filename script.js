@@ -3,20 +3,29 @@ document.addEventListener("DOMContentLoaded", () => {
     const activityLog = document.getElementById("activityLog");
     const speechTimerDisplay = document.getElementById("timer");
     const voteTimerDisplay = document.getElementById("voteCountdown");
-    let speechTime = 60; // Default speech time in seconds
-    let voteTime = 30; // Default vote time in seconds
+    const resolutionText = document.getElementById("resolutionText");
+    let speechTime = 60;
+    let voteTime = 30;
+    let delegates = [];
 
     // Register Delegate
     document.getElementById("registerDelegate").addEventListener("click", () => {
         let delegateName = document.getElementById("delegateName").value.trim();
+        let delegateRole = document.getElementById("delegateRole").value;
+        let delegateCountry = document.getElementById("delegateCountry").value;
+        
         if (delegateName === "") {
             alert("Please enter a delegate name.");
             return;
         }
+        
+        let delegate = { name: delegateName, role: delegateRole, country: delegateCountry };
+        delegates.push(delegate);
+        
         let li = document.createElement("li");
-        li.textContent = delegateName;
+        li.textContent = `${delegateCountry} - ${delegateName} (${delegateRole})`;
         delegateList.appendChild(li);
-        logActivity(`${delegateName} has joined the session.`);
+        logActivity(`${delegateName} from ${delegateCountry} has joined as ${delegateRole}.`);
         document.getElementById("delegateName").value = "";
     });
 
@@ -30,6 +39,15 @@ document.addEventListener("DOMContentLoaded", () => {
         }
         logActivity(`Motion proposed: ${motionType} for ${motionTime} minutes.`);
         alert("Motion proposed! Awaiting voting.");
+    });
+
+    // Chairperson Control - Approve/Reject Motion
+    document.getElementById("approveMotion").addEventListener("click", () => {
+        logActivity("Motion approved by Chairperson.");
+    });
+
+    document.getElementById("rejectMotion").addEventListener("click", () => {
+        logActivity("Motion rejected by Chairperson.");
     });
 
     // Raise Point
@@ -80,6 +98,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 1000);
     }
 
+    // Private Messaging System
+    document.getElementById("sendMessage").addEventListener("click", () => {
+        let recipient = document.getElementById("messageRecipient").value.trim();
+        let message = document.getElementById("privateMessage").value.trim();
+        if (recipient === "" || message === "") {
+            alert("Enter recipient and message before sending.");
+            return;
+        }
+        logActivity(`Private message sent to ${recipient}: "${message}"`);
+        document.getElementById("privateMessage").value = "";
+    });
+
     // Log Activities in Real-Time
     function logActivity(message) {
         let logEntry = document.createElement("p");
@@ -93,4 +123,15 @@ document.addEventListener("DOMContentLoaded", () => {
         let secs = seconds % 60;
         return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
     }
+
+    // Resolution Submission
+    document.getElementById("submitResolution").addEventListener("click", () => {
+        let resolutionContent = resolutionText.value.trim();
+        if (resolutionContent === "") {
+            alert("Enter resolution content before submitting.");
+            return;
+        }
+        logActivity("Resolution submitted: " + resolutionContent);
+        resolutionText.value = "";
+    });
 });
