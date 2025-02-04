@@ -16,6 +16,8 @@
                 <li><a href="#commands">Commands</a></li>
                 <li><a href="#debate">Debate</a></li>
                 <li><a href="#voting">Voting</a></li>
+                <li><a href="#delegate">Delegates</a></li>
+                <li><a href="#log">Live Log</a></li>
             </ul>
         </nav>
     </header>
@@ -26,10 +28,24 @@
             <p>Welcome to the MUN Session Simulator. Here, you can learn and practice parliamentary procedures.</p>
         </section>
 
+        <section id="delegate">
+            <h2>Delegate Registration</h2>
+            <input type="text" id="delegateName" placeholder="Enter Delegate Name">
+            <button id="registerDelegate">Register</button>
+            <ul id="delegateList"></ul>
+        </section>
+
         <section id="commands">
             <h2>Session Commands</h2>
             <button id="motionBtn">Propose a Motion</button>
             <button id="pointBtn">Raise a Point</button>
+            <select id="motionType">
+                <option value="setAgenda">Motion to Set the Agenda</option>
+                <option value="moderatedCaucus">Motion for a Moderated Caucus</option>
+                <option value="unmoderatedCaucus">Motion for an Unmoderated Caucus</option>
+                <option value="moveToVoting">Motion to Move to Voting</option>
+            </select>
+            <input type="number" id="motionTime" placeholder="Duration (mins)">
         </section>
 
         <section id="debate">
@@ -38,12 +54,20 @@
             <div id="debate-log"></div>
             <textarea id="debate-input" placeholder="Enter your speech..."></textarea>
             <button id="submitSpeech">Submit Speech</button>
+            <div id="speechTimer">Speech Time Left: <span id="timer">00:00</span></div>
         </section>
 
         <section id="voting">
             <h2>Voting</h2>
             <button id="startVote">Start Voting</button>
+            <button id="endVote">End Voting</button>
             <div id="voteResults"></div>
+            <div id="voteTimer">Voting Time Left: <span id="voteCountdown">00:00</span></div>
+        </section>
+
+        <section id="log">
+            <h2>Live Activity Log</h2>
+            <div id="activityLog"></div>
         </section>
     </main>
 
