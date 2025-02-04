@@ -83,6 +83,7 @@ button:hover {
     border-radius: 5px;
     min-height: 100px;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
 }
 
 textarea {
@@ -91,6 +92,39 @@ textarea {
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+}
+
+/* Voting Timer */
+#voteTimer, #speechTimer {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #d9534f;
+}
+
+/* Delegate List */
+#delegateList {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+#delegateList li {
+    background: #0056b3;
+    color: white;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Activity Log */
+#activityLog {
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 5px;
+    min-height: 100px;
+    border: 1px solid #ccc;
 }
 
 /* Footer */
