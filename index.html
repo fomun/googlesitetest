@@ -18,6 +18,7 @@
                 <li><a href="#voting">Voting</a></li>
                 <li><a href="#delegate">Delegates</a></li>
                 <li><a href="#log">Live Log</a></li>
+                <li><a href="#resolution">Resolution Drafting</a></li>
             </ul>
         </nav>
     </header>
@@ -46,6 +47,7 @@
                 <option value="moveToVoting">Motion to Move to Voting</option>
             </select>
             <input type="number" id="motionTime" placeholder="Duration (mins)">
+            <button id="motionVote">Vote on Motion</button>
         </section>
 
         <section id="debate">
@@ -68,6 +70,12 @@
         <section id="log">
             <h2>Live Activity Log</h2>
             <div id="activityLog"></div>
+        </section>
+
+        <section id="resolution">
+            <h2>Resolution Drafting</h2>
+            <textarea id="resolutionText" placeholder="Draft your resolution here..."></textarea>
+            <button id="submitResolution">Submit Resolution</button>
         </section>
     </main>
 
