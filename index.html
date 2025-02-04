@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUN Session Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>MUN Session Simulator</h1>
+            <ul>
+                <li><a href="#rules">Rules</a></li>
+                <li><a href="#commands">Commands</a></li>
+                <li><a href="#debate">Debate</a></li>
+                <li><a href="#voting">Voting</a></li>
+            </ul>
+        </nav>
+    </header>
 
+    <main>
+        <section id="rules">
+            <h2>Rules of Procedure</h2>
+            <p>Welcome to the MUN Session Simulator. Here, you can learn and practice parliamentary procedures.</p>
+        </section>
+
+        <section id="commands">
+            <h2>Session Commands</h2>
+            <button id="motionBtn">Propose a Motion</button>
+            <button id="pointBtn">Raise a Point</button>
+        </section>
+
+        <section id="debate">
+            <h2>Debate Floor</h2>
+            <p>Delegates will discuss and make arguments here.</p>
+            <div id="debate-log"></div>
+            <textarea id="debate-input" placeholder="Enter your speech..."></textarea>
+            <button id="submitSpeech">Submit Speech</button>
+        </section>
+
+        <section id="voting">
+            <h2>Voting</h2>
+            <button id="startVote">Start Voting</button>
+            <div id="voteResults"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MUN Session Simulator. All rights reserved.</p>
+    </footer>
+</body>
+</html>
